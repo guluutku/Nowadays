@@ -1,8 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Nowadays.Models;
 
 public class Company
 {
-    public string? id { get; set; }
 
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public string? id { get; set; }
     
 }
