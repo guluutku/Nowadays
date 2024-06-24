@@ -13,8 +13,11 @@ namespace Nowadays.Models
             optionsBuilder.UseSqlServer(configuration["ConnectionStrings:nowadaysConnection"]);
         }
 
-        public DbSet<Project> Projects { get; set; }
+        public DbSet<Company> Companies { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Issue> Issues { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
     }
 }
