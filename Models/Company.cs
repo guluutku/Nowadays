@@ -7,6 +7,8 @@ public class Company
 {
 
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public string? id { get; set; }
-    
+    public int companyID { get; set; }
+    public string? name { get; set; }
+    public bool isActive { get; set; }
+
 }

@@ -7,11 +7,11 @@ namespace Nowadays.Models
     {
 
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ProjectID { get; set; }
-
-        [StringLength(100)]
-        [Required(ErrorMessage = "Proje adı girilmeli")]
+        public int projectID { get; set; }
+        [Required]
         public string? ProjectName { get; set; }
+        public List<int>? issueIDs { get; set; }
+        public bool isActive { get; set; }
 
     }
 }
