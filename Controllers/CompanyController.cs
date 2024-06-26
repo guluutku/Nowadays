@@ -8,6 +8,7 @@ namespace Nowadays.Controllers;
 [ApiController]
 public class CompanyController : ControllerBase
 {
+    
     private readonly ILogger<CompanyController> _logger;
 
     public CompanyController(ILogger<CompanyController> logger)
