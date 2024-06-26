@@ -8,12 +8,18 @@ namespace Nowadays.Controllers;
 [ApiController]
 public class CompanyController : ControllerBase
 {
-    
-    private readonly ILogger<CompanyController> _logger;
-
-    public CompanyController(ILogger<CompanyController> logger)
+    [HttpGet]
+    public IEnumerable<Company> Get()
     {
-        _logger = logger;
+        return GetCompanies();
     }
-    
+
+    private List<Company> GetCompanies()
+    {
+        return new List<Company> { new Company(){
+        name = "Şirket",
+        isActive = true,
+    }};
+    }
+
 }
