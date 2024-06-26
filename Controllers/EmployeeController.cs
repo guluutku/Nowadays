@@ -4,7 +4,9 @@ using Nowadays.Models;
 
 namespace Nowadays.Controllers;
 
-public class EmployeeController : Controller
+[Route("api/[controller]")]
+[ApiController]
+public class EmployeeController : ControllerBase
 {
     private readonly ILogger<EmployeeController> _logger;
 
@@ -13,19 +15,4 @@ public class EmployeeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
 }
