@@ -21,6 +21,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// Custom added
+// Swagger
+app.UseSwagger();
+app.UseSwaggerUI();
+// End
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

@@ -9,6 +9,78 @@
       "PackagePath": "staticwebassets/css/site.css"
     },
     {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/favicon-16x16.png",
+      "PackagePath": "staticwebassets/dist/favicon-16x16.png"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/favicon-32x32.png",
+      "PackagePath": "staticwebassets/dist/favicon-32x32.png"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/index.css",
+      "PackagePath": "staticwebassets/dist/index.css"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/index.html",
+      "PackagePath": "staticwebassets/dist/index.html"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/oauth2-redirect.html",
+      "PackagePath": "staticwebassets/dist/oauth2-redirect.html"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-initializer.js",
+      "PackagePath": "staticwebassets/dist/swagger-initializer.js"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui-bundle.js",
+      "PackagePath": "staticwebassets/dist/swagger-ui-bundle.js"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui-bundle.js.map",
+      "PackagePath": "staticwebassets/dist/swagger-ui-bundle.js.map"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui-es-bundle-core.js",
+      "PackagePath": "staticwebassets/dist/swagger-ui-es-bundle-core.js"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui-es-bundle-core.js.map",
+      "PackagePath": "staticwebassets/dist/swagger-ui-es-bundle-core.js.map"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui-es-bundle.js",
+      "PackagePath": "staticwebassets/dist/swagger-ui-es-bundle.js"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui-es-bundle.js.map",
+      "PackagePath": "staticwebassets/dist/swagger-ui-es-bundle.js.map"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui-standalone-preset.js",
+      "PackagePath": "staticwebassets/dist/swagger-ui-standalone-preset.js"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui-standalone-preset.js.map",
+      "PackagePath": "staticwebassets/dist/swagger-ui-standalone-preset.js.map"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui.css",
+      "PackagePath": "staticwebassets/dist/swagger-ui.css"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui.css.map",
+      "PackagePath": "staticwebassets/dist/swagger-ui.css.map"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui.js",
+      "PackagePath": "staticwebassets/dist/swagger-ui.js"
+    },
+    {
+      "Id": "/Users/gnltk/Development/Nowadays/wwwroot/dist/swagger-ui.js.map",
+      "PackagePath": "staticwebassets/dist/swagger-ui.js.map"
+    },
+    {
       "Id": "/Users/gnltk/Development/Nowadays/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
     },
