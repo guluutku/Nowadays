@@ -35,14 +35,14 @@ public class CompanyController : ControllerBase
         return companyRepository.Update(company);
     }
 
-    [HttpPost]
+    [HttpDelete]
     [Route("DeleteCompany")]
     public Company DeleteCompany(int companyID)
     {
         return companyRepository.Delete(companyID);
     }
 
-    [HttpPost]
+    [HttpGet]
     [Route("GetCompany")]
     public Company GetCompany(int companyID)
     {

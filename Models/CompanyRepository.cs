@@ -15,9 +15,6 @@ namespace Nowadays.Models
         {
             try
             {
-                // TODO Exception'u düzelt
-                // TODO 500 Interval Error veriyor
-                // TODO 
                 context.Add(company);
                 context.SaveChanges();
                 return company;
@@ -30,21 +27,24 @@ namespace Nowadays.Models
 
         Company ICompanyRepository.Delete(int companyId)
         {
-            Company company = (Company)context.Companies.Where(c => c.companyID == companyId);
-            company.isActive = false;
-            context.SaveChanges();
+            try
+            {
+                Company? company = context.Companies.FirstOrDefault(c => c.companyID == companyId);
+                company!.isActive = false;
+                context.SaveChanges();
 
-            return company;
+                return company;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         List<Company> ICompanyRepository.GetAllCompanies()
         {
-            return new List<Company> { new Company(){
-                companyID = 1,
-                name = "Şirket",
-                isActive = true,
-                }
-            };
+            List<Company> companies = context.Companies.ToList();
+            return companies;
         }
 
         Company ICompanyRepository.Update(Company company)
