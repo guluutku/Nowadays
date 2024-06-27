@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Nowadays.Models;
 
@@ -8,18 +7,46 @@ namespace Nowadays.Controllers;
 [ApiController]
 public class CompanyController : ControllerBase
 {
+
+    ICompanyRepository companyRepository = new CompanyRepository();
+
+    /// <summary>
+    /// Use this to get a list of all companies
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
-    public IEnumerable<Company> Get()
+    [Route("GetAllCompanies")]
+    public IEnumerable<Company> GetAllCompanies()
     {
-        return GetCompanies();
+        return companyRepository.GetAllCompanies();
     }
 
-    private List<Company> GetCompanies()
+    [HttpPost]
+    [Route("AddCompany")]
+    public Company AddCompany(Company company)
     {
-        return new List<Company> { new Company(){
-        name = "Şirket",
-        isActive = true,
-    }};
+        return companyRepository.Add(company);
+    }
+
+    [HttpPost]
+    [Route("UpdateCompany")]
+    public Company UpdateCompany(Company company)
+    {
+        return companyRepository.Update(company);
+    }
+
+    [HttpPost]
+    [Route("DeleteCompany")]
+    public Company DeleteCompany(int companyID)
+    {
+        return companyRepository.Delete(companyID);
+    }
+
+    [HttpPost]
+    [Route("GetCompany")]
+    public Company GetCompany(int companyID)
+    {
+        return companyRepository.GetCompany(companyID);
     }
 
 }
