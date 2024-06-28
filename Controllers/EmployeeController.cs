@@ -8,11 +8,46 @@ namespace Nowadays.Controllers;
 [ApiController]
 public class EmployeeController : ControllerBase
 {
-    private readonly ILogger<EmployeeController> _logger;
+    IEmployeeRepository employeeRepository = new EmployeeRepository();
 
-    public EmployeeController(ILogger<EmployeeController> logger)
+    /// <summary>
+    /// Use this to get a list of all employees
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet]
+    [Route("GetAllEmployees")]
+    public IEnumerable<Employee> GetAllEmployees()
     {
-        _logger = logger;
+        return employeeRepository.GetAllEmployees();
+
+    }
+
+    [HttpGet]
+    [Route("GetEmployee")]
+    public Employee GetEmployee(int employeeID)
+    {
+        return employeeRepository.GetEmployee(employeeID);
+    }
+
+    [HttpPost]
+    [Route("AddEmployee")]
+    public Employee AddEmployee(Employee Employee)
+    {
+        return employeeRepository.Add(Employee);
+    }
+
+    [HttpPost]
+    [Route("UpdateEmployee")]
+    public Employee UpdateEmployee(Employee employee)
+    {
+        return employeeRepository.Update(employee);
+    }
+
+    [HttpDelete]
+    [Route("DeleteEmployee")]
+    public Employee DeleteEmployee(int employeeID)
+    {
+        return employeeRepository.Delete(employeeID);
     }
 
 }
