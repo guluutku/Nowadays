@@ -66,6 +66,5 @@ namespace Nowadays.Models
             return employee!;
         }
 
-
     }
 }

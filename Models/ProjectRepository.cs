@@ -22,25 +22,50 @@ namespace Nowadays.Models
             }
             catch (Exception)
             {
-                return project;
+                throw;
             }
         }
 
-        Project IProjectRepository.Delete(int id)
+        Project IProjectRepository.Delete(int projectId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Project? project = context.Projects.FirstOrDefault(c => c.projectID == projectId);
+                project!.isActive = false;
+                context.SaveChanges();
+
+                return project;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         List<Project> IProjectRepository.GetAllProjects()
         {
-            List<Project> skills = context.Projects.ToList();
-            Console.WriteLine(skills);
-            return skills;
+            List<Project> projects = context.Projects.ToList();
+            return projects;
         }
 
-        Project IProjectRepository.GetProject(int id)
+        Project IProjectRepository.GetProject(int projectId)
         {
-            throw new NotImplementedException();
+            var project = context.Projects.FirstOrDefault(c => c.projectID == projectId);
+            return project!;
+        }
+
+        Project IProjectRepository.Update(Project project)
+        {
+            try
+            {
+                context.Update(project);
+                context.SaveChanges();
+                return project;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }

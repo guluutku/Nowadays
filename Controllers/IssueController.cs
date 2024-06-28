@@ -8,11 +8,46 @@ namespace Nowadays.Controllers;
 [ApiController]
 public class IssueController : ControllerBase
 {
-    private readonly ILogger<IssueController> _logger;
+    IIssueRepository issueRepository = new IssueRepository();
 
-    public IssueController(ILogger<IssueController> logger)
+    /// <summary>
+    /// Use this to get a list of all Issues
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet]
+    [Route("GetAllIssues")]
+    public IEnumerable<Issue> GetAllIssues()
     {
-        _logger = logger;
+        return issueRepository.GetAllIssues();
+
+    }
+
+    [HttpGet]
+    [Route("GetIssue")]
+    public Issue GetIssue(int issueID)
+    {
+        return issueRepository.GetIssue(issueID);
+    }
+
+    [HttpPost]
+    [Route("AddIssue")]
+    public Issue AddIssue(Issue issue)
+    {
+        return issueRepository.Add(issue);
+    }
+
+    [HttpPost]
+    [Route("UpdateIssue")]
+    public Issue UpdateIssue(Issue issue)
+    {
+        return issueRepository.Update(issue);
+    }
+
+    [HttpDelete]
+    [Route("DeleteIssue")]
+    public Issue DeleteIssue(int issueID)
+    {
+        return issueRepository.Delete(issueID);
     }
 
 }

@@ -8,11 +8,46 @@ namespace Nowadays.Controllers;
 [ApiController]
 public class ProjectController : ControllerBase
 {
-    private readonly ILogger<ProjectController> _logger;
+    IProjectRepository projectRepository = new ProjectRepository();
 
-    public ProjectController(ILogger<ProjectController> logger)
+    /// <summary>
+    /// Use this to get a list of all Projects
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet]
+    [Route("GetAllProjects")]
+    public IEnumerable<Project> GetAllProjects()
     {
-        _logger = logger;
+        return projectRepository.GetAllProjects();
+
+    }
+
+    [HttpGet]
+    [Route("GetProject")]
+    public Project GetProject(int projectID)
+    {
+        return projectRepository.GetProject(projectID);
+    }
+
+    [HttpPost]
+    [Route("AddProject")]
+    public Project AddProject(Project project)
+    {
+        return projectRepository.Add(project);
+    }
+
+    [HttpPost]
+    [Route("UpdateProject")]
+    public Project UpdateProject(Project project)
+    {
+        return projectRepository.Update(project);
+    }
+
+    [HttpDelete]
+    [Route("DeleteProject")]
+    public Project DeleteProject(int projectID)
+    {
+        return projectRepository.Delete(projectID);
     }
 
 }

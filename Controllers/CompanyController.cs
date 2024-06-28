@@ -21,6 +21,13 @@ public class CompanyController : ControllerBase
         return companyRepository.GetAllCompanies();
     }
 
+    [HttpGet]
+    [Route("GetCompany")]
+    public Company GetCompany(int companyID)
+    {
+        return companyRepository.GetCompany(companyID);
+    }
+
     [HttpPost]
     [Route("AddCompany")]
     public Company AddCompany(Company company)
@@ -40,13 +47,6 @@ public class CompanyController : ControllerBase
     public Company DeleteCompany(int companyID)
     {
         return companyRepository.Delete(companyID);
-    }
-
-    [HttpGet]
-    [Route("GetCompany")]
-    public Company GetCompany(int companyID)
-    {
-        return companyRepository.GetCompany(companyID);
     }
 
 }
