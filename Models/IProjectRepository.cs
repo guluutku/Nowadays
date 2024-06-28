@@ -8,6 +8,7 @@ namespace Nowadays.Models
         Project GetProject(int id);
         Project Delete(int id);
         Project Add(Project project);
+        Project Update(Project project);
 
     }
 }

@@ -1,11 +1,52 @@
+using System.Reflection;
+using Microsoft.OpenApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Custom Added
+// Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Nowadays",
+        Version = "v1",
+        Description = "An issue tracker API",
+        TermsOfService = new Uri("https://example.com/terms"),
+        Contact = new OpenApiContact
+        {
+            Name = "Gün Uluutku",
+            Email = "example@email.com",
+            Url = new Uri("https://example.com/terms")
+        },
+        License = new OpenApiLicense
+        {
+            Name = "Nowadays License Example",
+            Url = new Uri("https://example.com/license")
+        }
+    });
+});
+
 builder.Services.AddHttpContextAccessor();
+// End
 
 var app = builder.Build();
+
+// Custom Added
+if (app.Environment.IsDevelopment())
+{
+    // Swagger
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Nowadays V1");
+    });
+}
+// End
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
