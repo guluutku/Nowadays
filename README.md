@@ -1,6 +1,6 @@
 Portal Gurup için hazırlanmış çalışma ve değerlendirme projesi.
 
-Projede .NET Framewrok Core, MSSQL, Repository/UnitOfWork Pattern, Interface ve SwaggerUI (REST API) kullanıldı.
+Projede .NET Framewrok Core, MSSQL, Docker, Repository/UnitOfWork Pattern, Interface ve SwaggerUI (REST API) kullanıldı.
 
 Projede Yapılanlar:
 - SwaggerUI yaratıldı.
