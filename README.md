@@ -2,6 +2,8 @@ Portal Gurup için hazırlanmış çalışma ve değerlendirme projesi.
 
 Projede .NET Framewrok Core, MSSQL, Docker, Repository/UnitOfWork Pattern, Interface ve SwaggerUI (REST API) kullanıldı.
 
+Projede 'Code First' yaklaşımı uygulanmıştır.
+
 Projeyi kullanmak:
 
 - Projeyi çalıştırdıktan sonra http://localhost:5137/swagger/index.html adresinden SwaggerUI sayfasına gidilebilir.
