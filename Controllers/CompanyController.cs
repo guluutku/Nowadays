@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Nowadays.Models;
+using Nowadays.Services;
 
 namespace Nowadays.Controllers;
 
@@ -8,45 +9,40 @@ namespace Nowadays.Controllers;
 public class CompanyController : ControllerBase
 {
 
-    ICompanyRepository companyRepository = new CompanyRepository();
+    private readonly MongoDBService _mongoDBService;
 
-    /// <summary>
-    /// Use this to get a list of all companies
-    /// </summary>
-    /// <returns></returns>
-    [HttpGet]
-    [Route("GetAllCompanies")]
-    public IEnumerable<Company> GetAllCompanies()
+    public CompanyController(MongoDBService mongoDBService)
     {
-        return companyRepository.GetAllCompanies();
+        _mongoDBService = mongoDBService;
     }
 
     [HttpGet]
     [Route("GetCompany")]
-    public Company GetCompany(int companyID)
+    public async Task<List<Company>> Get()
     {
-        return companyRepository.GetCompany(companyID);
+        return await _mongoDBService.GetAsync();
     }
 
     [HttpPost]
-    [Route("AddCompany")]
-    public Company AddCompany(Company company)
+    [Route("PostCompany")]
+    public async Task<IActionResult> Post([FromBody] Company company)
     {
-        return companyRepository.Add(company);
+        await _mongoDBService.CreateAsync(company);
+        return CreatedAtAction(nameof(Get), new { id = company.companyID }, company);
     }
 
-    [HttpPost]
-    [Route("UpdateCompany")]
-    public Company UpdateCompany(Company company)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> AddToCompany(string id, [FromBody] string employeeId)
     {
-        return companyRepository.Update(company);
+        await _mongoDBService.AddToCompanyAsync(id, employeeId);
+        return NoContent();
     }
 
-    [HttpDelete]
-    [Route("DeleteCompany")]
-    public Company DeleteCompany(int companyID)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(string id)
     {
-        return companyRepository.Delete(companyID);
+        await _mongoDBService.DeleteAsync(id);
+        return NoContent();
     }
 
 }
